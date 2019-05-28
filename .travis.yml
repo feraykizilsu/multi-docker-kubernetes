@@ -3,10 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t feraykizilsu/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run feraykizilsu/react-test npm test -- --coverage
 
 after_success:
   - docker build -t feraykizilsu/multi-client ./client
@@ -18,3 +16,4 @@ after_success:
   - docker push feraykizilsu/multi-nginx
   - docker push feraykizilsu/multi-server
   - docker push feraykizilsu/multi-worker
+
